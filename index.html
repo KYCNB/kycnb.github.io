@@ -106,6 +106,29 @@
             }
         }
         
+        /* 版权信息样式 */
+        .copyright {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0 20px;
+            z-index: 15;
+        }
+        
+        .copyright a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+        
+        .copyright a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
         /* 蓝色圆圈动画容器 */
         .circles {
             position: fixed;
@@ -169,6 +192,10 @@
             .title { margin-bottom: 0.3rem; }
             .subtitle { margin-bottom: 1.5rem; }
             .btn-container { margin: 1.5rem auto; }
+            .copyright {
+                bottom: 10px;
+                font-size: 0.7rem;
+            }
         }
         
         @media (max-width: 480px) {
@@ -176,19 +203,29 @@
                 height: 54px;
                 line-height: 54px;
             }
+            .copyright {
+                font-size: 0.65rem;
+                padding: 0 10px;
+            }
         }
     </style>
 </head>
 <body>
 <div class="mobile-container">
-    <h1 class="title">:(    </h1>
-
-
-    <h1 class="title">小孔创新网页开发中，敬请期待。</h1>
+    <h1 class="title">:(</h1>
+    <h1 class="title">网页开发中，敬请期待。</h1>
     <p class="subtitle">网站将于2026年1月1日正式上线</p>
     
     <div class="btn-container">
         <a href="https://cn.bing.com/">返回必应</a>
+    </div>
+
+    <!-- 版权信息 -->
+    <div class="copyright">
+        © 2025 小孔创新官网. 保留所有权利. 版权归孔一臣个人所有.| 
+        <a href="mailto:kyc@kycnb.top">联系我们</a> | 
+        <a href="/privacy">隐私政策</a> | 
+        <a href="/terms">服务条款</a>
     </div>
 
     <div class="circles">
@@ -218,5 +255,4 @@
     });
 </script>
 </body>
-
 </html>
