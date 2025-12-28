@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>小孔创新官网</title>
+    <style>
+        /* 重置与基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: "微软雅黑", "Microsoft YaHei", sans-serif;
+            background-color: #000;
+            color: #fff;
+            cursor: default;
+        }
+        
+        /* 主容器 */
+        .mobile-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            z-index: 10;
+        }
+        
+        /* 文字内容样式 */
+        .title {
+            font-size: clamp(1.8rem, 6vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .subtitle {
+            font-size: clamp(0.9rem, 3.5vw, 1.2rem);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            max-width: 90%;
+        }
+        
+        /* 按钮样式 */
+        .btn-container {
+            width: 100%;
+            max-width: 320px;
+            margin: 2rem auto;
+            position: relative;
+            z-index: 20;
+        }
+        
+        .btn-container a {
+            display: block;
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            font-size: clamp(1rem, 4vw, 1.2rem);
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            background-image: linear-gradient(to right, #03a9f4, #f441a5, #ffeb3b, #09a8f4);
+            background-size: 400%;
+            z-index: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* 按钮发光效果 */
+        .btn-container a::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: -5px;
+            right: -5px;
+            border-radius: 60px;
+            background-image: linear-gradient(to right, #2f03f4, #100938, #253655, #09a8f4);
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(20px);
+        }
+        
+        /* 按钮动画 */
+        .btn-container a:hover {
+            animation: sun 7s infinite;
+        }
+        
+        .btn-container a:hover::before {
+            animation: sun 7s infinite;
+        }
+        
+        @keyframes sun {
+            100% {
+                background-position: -400% 0;
+            }
+        }
+        
+        /* 蓝色圆圈动画容器 */
+        .circles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        /* 三个蓝色圆圈动画 */
+        .circle1, .circle2, .circle3 {
+            position: absolute;
+            border-radius: 100vw;
+            animation-timing-function: ease-out;
+        }
+        
+        .circle1 {
+            animation: circle1Path 15s infinite, fadeCircleIn 1.3s ease-out;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(12, 119, 255, 0.3) 15.62%, rgba(12, 119, 255, 0) 100%);
+        }
+        
+        .circle2 {
+            animation: circle2Path 20s infinite, fadeCircleIn 1.3s ease-out;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(0, 56, 255, 0.3) 15.62%, rgba(12, 119, 255, 0) 100%);
+        }
+        
+        .circle3 {
+            animation: circle3Path 30s infinite, fadeCircleIn 1.3s ease-out;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(65, 56, 210, 0.5) 15.62%, rgba(65, 56, 210, 0) 100%);
+        }
+        
+        /* 圆圈动画路径 */
+        @keyframes circle1Path {
+            0% { top:50vh; left:50vw; width:5vw; height:5vw; opacity:0.5; }
+            50% { top:0vh; left:45vw; width:60vw; height:60vw; opacity:1; }
+            100% { top:50vh; left:50vw; width:5vw; height:5vw; opacity:0.5; }
+        }
+        
+        @keyframes circle2Path {
+            0% { top:40vh; left:45vw; width:15vw; height:15vw; }
+            50% { top:37vh; left:-10vw; width:80vw; height:80vw; }
+            100% { top:40vh; left:45vw; width:15vw; height:15vw; }
+        }
+        
+        @keyframes circle3Path {
+            0% { top:30vh; left:30vw; width:25vw; height:25vw; }
+            50% { top:-50vh; left:-20vw; width:120vw; height:120vw; }
+            100% { top:30vh; left:30vw; width:25vw; height:25vw; }
+        }
+        
+        @keyframes fadeCircleIn {
+            0% { opacity:0; }
+            100% { opacity:1; }
+        }
+        
+        /* 移动端特定调整 */
+        @media (max-width: 768px) {
+            .title { margin-bottom: 0.3rem; }
+            .subtitle { margin-bottom: 1.5rem; }
+            .btn-container { margin: 1.5rem auto; }
+        }
+        
+        @media (max-width: 480px) {
+            .btn-container a {
+                height: 54px;
+                line-height: 54px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="mobile-container">
+    <h1 class="title">:(    </h1>
+
+
+    <h1 class="title">网页开发中，敬请期待。</h1>
+    <p class="subtitle">网站将于2026年1月1日正式上线</p>
+    
+    <div class="btn-container">
+        <a href="https://cn.bing.com/">返回必应</a>
+    </div>
+
+    <div class="circles">
+        <div class="circle1"></div>
+        <div class="circle2"></div>
+        <div class="circle3"></div>
+    </div>
+</div>
+
+<script>
+    // 触摸反馈效果
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.querySelector('.btn-container a');
+        if (btn) {
+            btn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            btn.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
+        
+        // 禁用双指缩放
+        document.addEventListener('gesturestart', function(e) {
+            e.preventDefault();
+        });
+    });
+</script>
+</body>
+</html>
